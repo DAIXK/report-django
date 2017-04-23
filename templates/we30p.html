@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block table %}
+    <table cellspacing="0" cellpadding="0">
+                <tr id="head">
+                    <th>项目/批次</th>
+                    <th>1st(1k)</th>
+                    <th>2nd(4k)</th>
+                    <th>3tr(10k)</th>
+                    <th>4th(10k)</th>
+                    <th>5th(5k)</th>
+                    <th>6th(5k)</th>
+                    <th>7th(5k)</th>
+                    <th>8th(5k)</th>
+                    <th>9th(5k)</th>
+
+                </tr>
+                <tr id="pcs">
+                    <td class="sale">出货数（pcs）</td>
+                    <td >1000</td>
+                    <td >4000</td>
+                    <td >10000</td>
+                    <td >10000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                </tr>
+                <tr>
+                    <td class="all">总返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="bad">实际不良数（pcs）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="alls">总返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="bads">实际不良率（%）</td>
+                </tr>
+                <tr>
+                    <td class="hardware">硬件返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="software">软件返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="na">其他返回数（pcs）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="hardwares">硬件返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="softwares">软件返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="nas">其他返回率（%）</td>
+                </tr>
+                <tr>
+                    <td class="back">无理由退货</td>
+                </tr>
+                <tr>
+                    <td class="no_question">未复现问题</td>
+                </tr>
+                <tr>
+                    <td class="factory">工厂制程问题</td>
+                </tr>
+                <tr>
+                    <td class="software">软件相关问题</td>
+                </tr>
+                <tr>
+                    <td class="receive">接收板不良</td>
+                </tr>
+                <tr>
+                     <td class="analysis">待分析</td>
+                </tr>
+                <tr>
+                    <td class="rk">RK芯片问题</td>
+                </tr>
+                <tr>
+                    <td class="customer">客户应用问题</td>
+                </tr>
+                <tr>
+                    <td class="wifi">WIFI模块问题</td>
+                </tr>
+                <tr>
+                    <td class="mac">MAC错烧</td>
+                </tr>
+            </table>
+{% endblock %}
+
+{% block container %}<div id="container"></div>{% endblock %}
+{% block container_js %}
+     <script type="text/javascript">
+                $(function () {
+                    var we30p = {{ data | safe }};
+                    var sale_list= get_table_pcs();
+                    var head = get_table_head();
+                    var list = ['151024','151116','3th','4th','5th','160811','161021','161214','170324'];
+                    make_two_data(we30p,'151223','151224','3th');
+                    make_two_data(we30p,'160113','160119','4th');
+                    make_two_data(we30p,'160524','160718','5th');
+                    var result = table_head(we30p,class_list,sale_list,list);
+                    table_body(we30p,list);
+                    hightchars(x_list=head,result[0],result[1],result[2],name='WE30PRO',max=1500);
+
+                });
+		    </script>
+{% endblock %}
+
+
+

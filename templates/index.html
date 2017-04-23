@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html >
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>售后报表系统</title>
+		<link rel="stylesheet" type="text/css" href="../static/index.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/base.css"/>
+	</head>
+	<body>
+        <div id="main">
+            <div  id="left">
+                    <span  >
+                        <img src="../static/TOGIC_LOGO_141129.png" id="webox" >
+                    </span>
+                    <span  class="sapns" id="we30">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbspWE30
+                    </span>
+                    <span  class="sapns" id="we30p">
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbspWE30PRO
+                    </span>
+                    <span   class="sapns" id="we30c">
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbspWE30C
+                    </span>
+                    <span   class="sapns" id="we30v">
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbspWE30V
+                    </span>
+
+                    <span class="sapns" id="parts">
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp配件
+                    </span>
+            </div>
+             <div id="right" ></div>
+        </div>
+	</body>
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/tool.js"></script>
+    <script src="../static/highcharts.js"></script>
+    <script src="../static/exporting.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#we30').css('background-image','url("../static/123.png")');
+            $('#right').load('/we30/');
+            $('#we30,#we30p,#we30c,#we30v,#parts').on('click',function () {
+               $(':not(this)').css('background-image','none');
+               $(this).css({'color':'white','background-image':'url("../static/123.png")'});
+               var id = $(this).attr('id');
+               $('#right').load('/'+id+'/');
+            });
+        });
+    </script>
+
+</html>

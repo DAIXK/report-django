@@ -1,0 +1,72 @@
+//总返回数,硬件不良数
+                    back_number = 0;
+                    hardware = 0;
+                    //统计每个日期批次总返回数
+                   // for (x in list){
+                   //     for (y in we30c[list[x]]){
+                   //         back_number += we30c[list[x]][y];
+                    //    };
+                    //    we30c[list[x]]['all'] = back_number;
+                    //    back_number=0;
+                    //};
+                    //统计总返回数结束
+                 //   for(x in list){
+                 //       hardware = we30c[list[x]]['factory']+we30c[list[x]]['analysis']+we30c[list[x]]['factory']
+                 //   };
+
+
+
+                 for (x in list){
+                        $('.rk').after('<td>'+we30c[list[x]]['rk']+'</td>')
+                    };
+                    for (x in list){
+                        $('.back').after('<td>'+we30c[list[x]]['back']+'</td>')
+                    };
+                    for (x in list){
+                        $('.no_question').after('<td>'+we30c[list[x]]['no_question']+'</td>')
+                    };
+                    for (x in list){
+                        $('.factory').after('<td>'+we30c[list[x]]['factory']+'</td>')
+                    };
+                    for (x in list){
+                        $('.tel').after('<td>'+we30c[list[x]]['tel']+'</td>')
+                    };
+                    for (x in list){
+                        $('.hdmi').after('<td>'+we30c[list[x]]['hdmi']+'</td>')
+                    };
+                    for (x in list){
+                        $('.power').after('<td>'+we30c[list[x]]['power']+'</td>')
+                    };
+                    for (x in list){
+                        $('.rk').after('<td>'+we30c[list[x]]['rk']+'</td>')
+                    };
+
+
+                    function table_head(object,class_list,sale_list,list) {
+                     for (var x=0; x<class_list.length; x++){
+                        var str ='';
+                        for (var y=0; y<list.length; y++){
+                            switch (class_list[x]){
+                                case 'bad':
+                                    $('.' + class_list[x] + '').after('<td>' + object[list[y]]['hardware'] + '</td>');
+                                    break
+                                case 'alls':
+                                    $('.' + class_list[x] + '').after('<td>' + (object[list[y]]['all'] / sale_list[y] * 100).toFixed(2) + '%' + '</td>');
+                                    break;
+                                case 'bads':
+                                    $('.' + class_list[x] + '').after('<td>' + ((object[list[y]]['hardware'] + object[list[y]]['software']) / sale_list[y] * 100).toFixed(2) + '%' + '</td>');
+                                    break;
+                                case 'hardwares':
+                                    $('.' + class_list[x] + '').after('<td>' + ((object[list[y]]['hardware']) / sale_list[y] * 100).toFixed(2) + '%' + '</td>');
+                                    break;
+                                case 'softwares':
+                                    $('.' + class_list[x] + '').after('<td>' + ((object[list[y]]['software']) / sale_list[y] * 100).toFixed(2) + '%' + '</td>');
+                                    break;
+                                case 'nas':
+                                    $('.' + class_list[x] + '').after('<td>' + ((object[list[y]]['na']) / sale_list[y] * 100).toFixed(2) + '%' + '</td>');
+                                    break;
+                            };
+                        };
+                        $('.'+class_list[x]+'').after(str);
+                    };
+                 };

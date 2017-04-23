@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block container %}<div id="container"></div>{% endblock %}
+{% block container_js %}
+     <script type="text/javascript">
+              $(function () {
+                    $('#container').highcharts({
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle',
+                            borderWidth: 0
+                        },
+                        exporting: {
+                                enabled: false
+                             },
+                        credits:{
+                            text:'',
+                        },
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: '配件'
+                        },
+                        xAxis: {
+                            categories: ['语音遥控器', '2.4G遥控器', '佳的美电源头', '天宝电源头','电源线', 'HDMI线','AV线']
+                        },
+                        yAxis: {
+                            allowDecimals: false,
+                            min: 0,
+                            maxPointWidth: 80,
+                            title: {
+                                text: 'Pcs'
+                            }
+                        },
+                        tooltip: {
+                            //formatter: function () {
+                              //  return '<b>' + this.x + '</b><br/>' +
+                                //    this.series.name + ': ' + this.y + '<br/>' +
+                                 //   '新增数: ' + this.point.stackTotal;
+                            //}
+                        },
+                        plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                dataLabels: {
+                                    enabled: true,
+                                    format:'{y}'
+                                },
+                            }
+                        },
+series: [{
+              name: '新增数',
+             data: [{{ voice_new }}, {{ tel_new }},{{ power_j_new }},{{ power_t_new }},{{ HDMI_new }},{{ line_new }},{{ av_new }}], 
+              stack: 'female'
+          },{
+              name: '不良数',
+              data: [{{ voice }}, {{ tel }},{{ power_j }},{{ power_t }},{{ HDMI }},{{ line }},{{ av }}],
+              stack: 'female'
+           },
+   ]
+                    });
+                });
+		    </script>
+{% endblock %}

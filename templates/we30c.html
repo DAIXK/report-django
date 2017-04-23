@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block table %}
+    <table cellspacing="0" cellpadding="0">
+                <tr id="head">
+                    <th>项目/批次</th>
+                    <th>1st(1k)</th>
+                    <th>2nd(5k)</th>
+                    <th>3rd(5k)</th>
+                    <th>4th(5k)</th>
+                </tr>
+                <tr id="pcs">
+                    <td class="sale">出货数（pcs）</td>
+                    <td >1000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                    <td >5000</td>
+                </tr>
+                <tr>
+                    <td class="all">总返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="bad">实际不良数（pcs）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="alls">总返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="bads">实际不良率（%）</td>
+                </tr>
+                <tr>
+                    <td class="hardware">硬件返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="software">软件返回数（pcs）</td>
+                </tr>
+                <tr>
+                    <td class="na">其他返回数（pcs）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="hardwares">硬件返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="softwares">软件返回率（%）</td>
+                </tr>
+                <tr class="th_color">
+                    <td class="nas">其他返回率（%）</td>
+                </tr>
+                <tr>
+                    <td class="back">无理由退货</td>
+                </tr>
+                <tr>
+                    <td class="no_question">未复现问题</td>
+                </tr>
+                <tr>
+                    <td class="factory">工厂制程问题</td>
+                </tr>
+                <tr>
+                    <td class="tel">遥控器不良</td>
+                </tr>
+                <tr>
+                    <td class="power">电源不良</td>
+                </tr>
+                <tr>
+                    <td class="hdmi">HDMI线不良</td>
+                </tr>
+                <tr>
+                    <td class="software">软件相关问题</td>
+                </tr>
+                <tr>
+                     <td class="analysis">待分析</td>
+                </tr>
+                <tr>
+                    <td class="rk">RK芯片问题</td>
+                </tr>
+                <tr>
+                    <td class="customer">客户应用问题</td>
+                </tr>
+
+            </table>
+{% endblock %}
+
+{% block container %}<div id="container"></div>{% endblock %}
+{% block container_js %}
+    <script type="text/javascript">
+                $(function () {
+                    var we30c = {{ data | safe }};
+                    var head = get_table_head();
+                    var sale_list= get_table_pcs();
+                    var list = make_list(we30c);
+                    var result = table_head(we30c,class_list,sale_list,list);
+                    table_body(we30c,list);
+                    hightchars(x_list=head,result[0],result[1],result[2],name='WE30C',max=600);
+
+                });
+    </script>
+{% endblock %}
+
+

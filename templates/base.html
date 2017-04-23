@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+{#    <link rel="stylesheet" type="text/css" href="../static/base.css"/>#}
+</head>
+<body>
+            {% block container %}<div id="container"></div>{% endblock %}
+            <div id="right-bot">
+                {% block table %}{% endblock %}
+            </div>
+</body>
+
+  {% block container_js %}{% endblock %}
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+          //alert($('#container').height());
+          var ht = $('#right-bot').outerHeight(true)+$('#container').outerHeight(true)+10;
+          $('#left').css('height',ht);
+          $('#main').css('height',ht);
+        });
+    </script>
+</html>

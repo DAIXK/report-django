@@ -1,0 +1,54 @@
+*{margin: 0px;padding: 0px; background-color:rgb(238,234,234); }
+            #main{
+                background-color: white;
+                width: 1261px;
+                margin: 0 auto;
+                height: 1500px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .sapns{
+                background-color:#3A3A4F ;
+                width: 100%;
+                height: 30px;
+                display: block;
+                font-family: 微软雅黑;
+                text-align: left;
+                line-height: 30px;
+                color: rgb(202,213,231);
+
+             }
+            .sapns:hover{
+                background:#6B6372 ;
+            }
+            #left{
+                background-color: #3A3A4F;
+                float: left;
+                width:259px;
+                margin: 0px;
+                padding: 0px;
+                height: 1500px;
+            }
+            #right-bot{
+                width: 900px;
+                float: right;
+                margin-top: 20px;
+                margin-right: 102px;
+
+            }
+            #webox{
+                background-color: #3A3A4F;
+                width: 100%;
+                height: 104px;
+                display: block;
+            }
+            #container{
+                margin: 0;
+                padding: 0;
+                width: 900px;
+                height: 400px;
+                margin: 0 auto;
+                margin-top: 20px;
+                margin-right: 102px;
+                float: right;
+            }
